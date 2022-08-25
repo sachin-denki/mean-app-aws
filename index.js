@@ -1,12 +1,11 @@
-// require("dotenv").config();
+require("dotenv").config();
 const express = require('express');
 const app = express();
 let responseHandler = require('./middleware/responseHandler')
 app.use(express.json());
 const cors = require('cors')
 const sequelize = require('./db');
- app.use(cors());
-// sequelize.sync({force:true})
+app.use(cors());
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
